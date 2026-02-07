@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = request.json
+    data = request.get_json(force=True) or {}
     description = data.get("description", "").lower()
 
     # Priority logic
