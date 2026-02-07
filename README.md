@@ -6,6 +6,13 @@ Users can create, manage, and automatically categorize tasks using an integrated
 ## Live Demo
 https://task-manager-ai-three.vercel.app/
 
+## AI Classification service
+The project implements AI-based task classification using a Python Flask microservice integrated with the Node.js backend.
+The service predicts task priority and status based on description input.
+To handle cold-start delays in Render’s free-tier deployment, a fallback classifier was added in the backend.
+This ensures uninterrupted AI functionality in production.
+Both implementations are maintained to demonstrate microservice architecture and system reliability.
+
 ## Features
 Email-based Login  
 Create, Edit & Delete Tasks  
