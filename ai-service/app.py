@@ -3,6 +3,10 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+def health():
+    return "AI Service Running"
+
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json(force=True) or {}
