@@ -109,8 +109,8 @@ export default function Dashboard(){
                     <div className="task-card" key={task._id}>
                         <h3>{task.title}</h3>
                         <p>{task.description}</p>
-                        <p className="task-time">Created : {new Date(task.createdAt).toLocaleString()}</p>
-                        <p className="task-time">Updated : {new Date(task.updatedAt).toLocaleString()}</p>
+                        <span className="task-time">Created : {new Date(task.createdAt).toLocaleString()}</span>
+                        <span className="task-time">Updated : {new Date(task.updatedAt).toLocaleString()}</span>
                         <div className="task-card-actions">
                             <button className="btn-outline" onClick={()=> navigate(`/edit/${task._id}`)}><FiEdit /> Edit</button>
                             <button className="btn-danger-outline" onClick={()=>deleteTasks(task._id)}><FiTrash2/> Delete</button>

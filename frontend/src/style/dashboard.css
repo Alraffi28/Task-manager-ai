@@ -107,6 +107,11 @@
     font-size: 14px;
 }
 
+.task-time {
+    font-size: 10px;
+    color: #777;
+}
+
 .task-card-actions {
     display: flex;
     gap: 10px;
