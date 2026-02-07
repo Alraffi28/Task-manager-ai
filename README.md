@@ -105,4 +105,3 @@ GitHub Actions automatically installs dependencies and builds the frontend on ev
 
 ## Author
 Mohammed Alraffi J
->>>>>>> 7bc979c7c530d7b4e78524e4344cf2e647cbc562
