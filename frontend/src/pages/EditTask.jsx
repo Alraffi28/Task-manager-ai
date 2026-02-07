@@ -16,6 +16,7 @@ export default function EditTask() {
     })
     const [error , setError] = useState("")
     const [loading , setLoading] = useState(true)
+    const [aiLoading , setAiLoading] = useState(false)
 
     const fetchTask = async () =>{
         try {
@@ -40,6 +41,7 @@ export default function EditTask() {
             return;
         }
         try {
+            setAiLoading(true)
             const res = await API.post("/classify" , {
                 description : task.description
             })
@@ -49,6 +51,8 @@ export default function EditTask() {
             })
         } catch (error) {
             setError("AI categorization failed")
+        }finally{
+            setAiLoading(false)
         }
     }
 
@@ -97,7 +101,7 @@ export default function EditTask() {
                     onChange={handleChange}/>
             </div>   
                 <button type='button' className="btn-outline ai-btn" onClick={autoCategorize}>
-                   <FiCpu /> Auto Categorize
+                    {aiLoading ? "Classifying..." : <><FiCpu /> Auto Categorize</>}
                 </button>
 
             <div className="form-row">
