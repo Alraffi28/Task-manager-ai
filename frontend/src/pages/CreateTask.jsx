@@ -13,6 +13,7 @@ export default function CreateTask() {
         status : ""
     })
     const [error , setError] = useState("")
+    const [aiLoading , setAiLoading] = useState(false)
 
     const handleChange = (e) => {
         setTask({...task,[e.target.name] : e.target.value})
@@ -25,12 +26,15 @@ export default function CreateTask() {
             return;
         }
         try {  
+            setAiLoading(true)
             const res = await API.post("/classify", {
                 description: task.description
             })
             setTask({...task , priority : res.data.priority , status : res.data.status})
         } catch (error) {
             setError("AI categorization failed")
+        }finally{
+            setAiLoading(false)
         }
     }
 
@@ -72,7 +76,9 @@ export default function CreateTask() {
                 <textarea name="description" onChange={handleChange}
                 value={task.description} placeholder='Enter Description'></textarea>
             </div>
-                <button type='button' className="btn-outline ai-btn" onClick={autoCategorize}><FiCpu />Auto Categorize</button>
+                <button type='button' className="btn-outline ai-btn" onClick={autoCategorize}>
+                    {aiLoading ? "Classifying..." : <><FiCpu /> Auto Categorize</>}
+                    </button>
             <div className="form-row">
                 <div className="form-group">
                     <label htmlFor="">Priority</label>
