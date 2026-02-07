@@ -1,4 +1,4 @@
-# 🚀 AI Task Manager
+## AI Task Manager
 
 An AI-powered full-stack task management application built using microservice architecture.  
 Users can create, manage, and automatically categorize tasks using an integrated AI service.
