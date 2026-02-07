@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Old README content
-=======
-New README content
->>>>>>> main
-
-
 ## AI Task Manager
 
 An AI-powered full-stack task management application built using microservice architecture.  
