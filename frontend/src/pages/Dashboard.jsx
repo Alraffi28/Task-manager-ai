@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom"
 import { FiPlus, FiLogOut, FiEdit, FiTrash2 } from "react-icons/fi"
 import API from "../services/api"
 import "../style/dashboard.css"
+import Spinner from "../components/Spinner"
 
 export default function Dashboard(){
     const [tasks , setTasks]  = useState([])
     const [error , setError] = useState("")
+    const [loading , setLoading] = useState(true)
     const navigate = useNavigate()
 
     const fetchTasks = async ()=>{
@@ -15,6 +17,8 @@ export default function Dashboard(){
             setTasks(res.data || [])
         }catch(err){
             setError("Failed to load tasks")
+        }finally{
+            setLoading(false)
         }
     }
 
@@ -59,6 +63,7 @@ export default function Dashboard(){
         done: tasks.filter(t => t.status === "done").length,
         todo: tasks.filter(t => t.status === "todo").length
     }
+    if(loading) return <Spinner/>
     return(
         <div className="dashboard-container">
             <div className="dashboard-header">
