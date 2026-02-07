@@ -3,33 +3,24 @@
 An AI-powered full-stack task management application built using microservice architecture.  
 Users can create, manage, and automatically categorize tasks using an integrated AI service.
 
----
+## Live Demo
+https://your-vercel-link-here
 
-## 🌐 Live Demo
-👉 https://your-vercel-link-here
+## Features
+Email-based Login  
+Create, Edit & Delete Tasks  
+AI Auto Task Categorization  
+Analytics Dashboard  
+Protected Routes & Logout  
+CI/CD Pipeline with GitHub Actions  
 
----
-
-## ✨ Features
-
-✅ Email-based Login  
-✅ Create, Edit & Delete Tasks  
-✅ AI Auto Task Categorization  
-✅ Analytics Dashboard  
-✅ Protected Routes & Logout  
-✅ CI/CD Pipeline with GitHub Actions  
-
----
-
-## 🤖 AI Integration
+## AI Integration
 Tasks can be auto-classified using a Flask-based AI microservice that predicts:
 
 - Priority → High / Medium / Low  
 - Status → Done / Todo  
 
----
-
-## 📊 Dashboard Analytics
+## Dashboard Analytics
 Displays:
 
 - Total Tasks
@@ -37,9 +28,7 @@ Displays:
 - Priority Distribution
 - Status Distribution
 
----
-
-## 🏗️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - React (Vite)
@@ -60,10 +49,7 @@ Displays:
 - GitHub Actions CI Pipeline
 - Vercel Deployment
 
----
-
-## 📂 Project Structure
-
+## Project Structure
 ```
 backend      → Express API
 frontend     → React UI
@@ -71,16 +57,13 @@ ai-service   → Flask AI microservice
 .github      → CI/CD workflow
 ```
 
----
-
-## ⚙️ Local Setup
+## Local Setup
 
 ### Clone Repo
 ```
 git clone <repo-link>
 cd Assignment
 ```
-
 ---
 
 ### Backend
@@ -89,13 +72,11 @@ cd backend
 npm install
 npm run dev
 ```
-
 Create `.env`
 ```
 PORT=5000
-MONGO_URI=your_connection_string
+MONGO_URI=mongodb+srv://<username>:<db_password>@cluster0.xvjtlej.mongodb.net/?appName=Cluster0
 ```
-
 ---
 
 ### AI Service
