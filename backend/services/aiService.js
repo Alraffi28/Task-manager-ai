@@ -1,19 +1,25 @@
 const axios = require("axios");
-const AI_BASE = "https://task-manager-ai-1.onrender.com";
+const AI_URL= "https://task-manager-ai-1.onrender.com/predict";
+
+const delay = (ms)=> new Promise(resolve => setTimeout(resolve , ms))
 
 exports.classifyTask = async (description) => {
-  try {
-    await axios.get(AI_BASE);
-    const response = await axios.post(
-      `${AI_BASE}/predict`,
-      { description },
-      { timeout: 20000 }
-    );
-
-    return response.data;
-
-  } catch (error) {
-    console.error("AI Service Error:", error.message);
-    throw new Error("AI Service Error");
+  const maxAttempts = 4
+  for(let attempt = 1 ; attempt<= maxAttempts ; attempt++){
+    try {
+      const response = await axios.post(
+        AI_URL,
+        {description},
+        {timeout : 3000}
+      )
+      return response.data
+    } catch (error) {
+      console.log(`AI attempt ${attempt} failed`)
+      if(attempt === maxAttempts){
+        throw new Error("AI Service Error")
+      }
+      await delay(attempt*4000)
+    }
   }
+
 };
