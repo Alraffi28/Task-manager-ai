@@ -4,7 +4,7 @@ An AI-powered full-stack task management application built using microservice ar
 Users can create, manage, and automatically categorize tasks using an integrated AI service.
 
 ## Live Demo
-https://your-vercel-link-here
+https://task-manager-ai-three.vercel.app/
 
 ## Features
 Email-based Login  
