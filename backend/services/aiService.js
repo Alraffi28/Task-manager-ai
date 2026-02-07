@@ -3,7 +3,7 @@ const axios = require("axios");
 exports.classifyTask = async (description) => {
   try {
     const response = await axios.post(
-      "http://127.0.0.1:6000/predict",
+      "https://task-manager-ai-1.onrender.com",
       { description }
     );
 
