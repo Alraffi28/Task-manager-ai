@@ -4,6 +4,7 @@ import API from '../services/api'
 import { FiEdit3, FiX, FiCpu } from "react-icons/fi"
 import Spinner from "../components/Spinner"
 import "../style/taskForm.css"
+import { toast } from 'react-toastify'
 
 export default function EditTask() {
     const {id} = useParams()
@@ -68,9 +69,10 @@ export default function EditTask() {
         }
         try {
             await API.put(`/${id}` , task)
+            toast.success("Task updated successfully")
             navigate("/dashboard")
         } catch (error) {
-            setError("Failed to update task")
+            toast.error("Failed to update task")
         }
     }
     

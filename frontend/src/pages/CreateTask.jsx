@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import API from '../services/api'
 import { FiSave, FiX, FiCpu } from "react-icons/fi"
+import { toast } from 'react-toastify'
 import '../style/taskForm.css'
 
 export default function CreateTask() {
@@ -50,9 +51,10 @@ export default function CreateTask() {
         }
         try {
             await API.post("/" , task)
-            navigate('/dashboard')  
+            navigate('/dashboard')
+            toast.success("Task created successfully")
         } catch (error) {
-            setError("Failed to create task")
+            toast.error("Failed to create task")
         }
     }
 
