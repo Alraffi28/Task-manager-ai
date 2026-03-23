@@ -3,9 +3,14 @@ const mongoose = require("mongoose")
 const taskSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
-  description: String,
+  description: {
+    type: String,
+    required: true,
+    trim: true
+  },
   priority: {
     type: String,
     default: "medium"

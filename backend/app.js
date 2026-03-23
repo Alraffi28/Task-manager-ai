@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.use("/api/tasks", taskRoutes);
 
-app.use((err , res , req)=>{
+app.use((err , res , req , next)=>{
     console.log(err.stack);
     res.status(500).json({message : "Internal server error"})
 });
