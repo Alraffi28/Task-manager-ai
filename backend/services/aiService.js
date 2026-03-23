@@ -19,7 +19,7 @@ const localClassifer = (description) =>{
   const text = description.toLowerCase()
 
   let priority = "medium"
-  if(text.includes("urgent") || text.includes("immediately") || text.includes("immediate")){
+  if(text.includes("urgent") || text.includes("immediately") || text.includes("immediate") || text.includes("important")){
     priority = "high"
   }else if(text.includes("later") || text.includes("low") || text.includes("not")){
     priority = "low"
